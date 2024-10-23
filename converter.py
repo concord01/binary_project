@@ -14,7 +14,7 @@ def converter(input):
     # correcting the index
     index = 0
     indexFinal = indexFinal-1
-    print(inputChange)
+
     # going and adding adding the 1s into the right spot
     while indexFinal >= 0:
         # decides if it should add a 1 or not to a given index
@@ -22,7 +22,6 @@ def converter(input):
             output[index] = 1
             index = index + 1
             inputChange = inputChange - (2 ** indexFinal)
-            print(inputChange)
             indexFinal = indexFinal - 1
         else:
             # skips index
