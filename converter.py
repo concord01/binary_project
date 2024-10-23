@@ -1,16 +1,37 @@
 def converter(input):
-    output = [0,0,0,0]
-    while input >= 8:
-        input = input - 8
-        output[0] = 1
-    while input >= 4:
-        input = input - 4
-        output[1] = 1
-    while input >= 2:
-        input = input - 2
-        output[2] = 1
-    while input >= 1:
-        input = input - 1
-        output[3] = 1
+    output = []
+    index = 0
+    inputChange = input
+    indexFinal = 0
+    # getting array to correct size
+    while True:
+        if (inputChange - (2 ** index) >= 0):
+            index = index + 1
+            output.append(0)
+        else:
+            indexFinal = index
+            break
+    # correcting the index
+    index = 0
+    indexFinal = indexFinal-1
+    print(inputChange)
+    # going and adding adding the 1s into the right spot
+    while indexFinal >= 0:
+        # decides if it should add a 1 or not to a given index
+        if (inputChange - (2 ** indexFinal) >= 0):
+            output[index] = 1
+            index = index + 1
+            inputChange = inputChange - (2 ** indexFinal)
+            print(inputChange)
+            indexFinal = indexFinal - 1
+        else:
+            # skips index
+            index = index + 1
+            indexFinal = indexFinal - 1
     return output
-print(converter(1))
+        
+    
+
+
+
+print(converter(1985))
